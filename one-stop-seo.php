@@ -48,11 +48,11 @@ add_shortcode('readmore', 'read_more_shortcode');
 
 /* -==========- Version Check -==========- */
 
-require 'path/to/plugin-update-checker/plugin-update-checker.php';
+require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-  'http://example.com/path/to/details.json',
-  __FILE__, //Full path to the main plugin file or functions.php.
-  'unique-plugin-or-theme-slug'
+  'https://github.com/faddies/one-stop-seo',
+  __FILE__,
+  'one-stop-seo'
 );
 
 /* -==========- Version Check End -==========- */
