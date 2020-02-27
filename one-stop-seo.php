@@ -269,7 +269,6 @@ else{
 if (isset($_POST['customforhead'])){
 
 $customforhead = addslashes(htmlentities($_POST['customforhead']));
-var_dump($customforhead);die();
 global $wpdb;
 $table_name = $wpdb->prefix . 'main_table';
 $query = "UPDATE `$table_name` SET `option_value`='$customforhead' WHERE `option` = 'custom_head'";
