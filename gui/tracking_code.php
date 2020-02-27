@@ -19,7 +19,7 @@
 
         </td>
         <td>Enter Code only: 
-          <span style="color:red; font-weight: bold;">GTM-xxxxxxx</span>
+          <span style="color:white; font-weight: bold;">GTM-xxxxxxx</span>
         </td>
       </tr>
     </table>
@@ -42,7 +42,7 @@
           value="<?php echo $abc = check_value('option','ga_code','option_value','main_table'); ?>" />
         </td>
         <td>Enter Code only: 
-          <span style="color:red; font-weight: bold;">UA-xxxxxxxxx-x</span>
+          <span style="color:white; font-weight: bold;">UA-xxxxxxxxx-x</span>
         </td>
       </tr>
     </table>
@@ -62,12 +62,12 @@
           onblur="if (this.value=='') this.value=this.defaultValue" 
           type="text" 
           id="sccode" 
-          name="sccode" 
+          name="sccode"
+          pattern="[A-Za-z-_0-9]{43}"
           maxlength="43" 
           value="<?php echo $abc = check_value('option','sc_code','option_value','main_table');  ?>" />
         </td>
-        <td>Enter Code highlighted in Red &lt;meta name="google-site-verification" content="
-          <span style="color:red; font-weight: bold;">Bi6c2liN2EH7_Ctm5fQ71kuro6Im_D3pSih9EbAgoFk</span>" /&gt; 
+        <td>Code Only. XXXXXXX_XXXXX_XXXXXX 
         </td>
       </tr>
     </table>
