@@ -8,7 +8,11 @@
  * Author URI: https://www.linkedin.com/in/fahadbinzafar/
  */
 
+/* -==========- Constants  -==========- */
+define("PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
+define('PLUGIN_URL', plugins_url());
 
+/* -==========- Constants  Ends-==========- */
 global $wpdb;
 global $all_data;
 
@@ -44,7 +48,7 @@ add_shortcode('readmore', 'read_more_shortcode');
 
 /* -==========- Short Code Register End -==========- */
 
-
+wp_enqueue_style( 'style', '/resources/style.css' );
 
 /* -==========- Version Check -==========- */
 
