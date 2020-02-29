@@ -11,6 +11,7 @@
 /* -==========- Constants  -==========- */
 define("PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
 define('PLUGIN_URL', plugins_url());
+define('SITE_URL', get_site_url());
 
 /* -==========- Constants  Ends-==========- */
 global $wpdb;
@@ -83,13 +84,14 @@ function one_stop_seo_create_table(){
               ('gtm_code'),
               ('sc_code'),
               ('custom_head'),
-              ('custom_body')";
+              ('custom_body'),
+              ('ct_code')";
   run_query($add_data);
 
 }
 
 
-
+one_stop_seo_create_table();
 /* -==========- Required Table Creation End -==========- */
 
 
@@ -312,6 +314,26 @@ else{
 
 }
 
+if (isset($_POST['ctcode'])){
+
+$ct_code = $_POST['ctcode'];
+//var_dump($gtm_code);die();
+global $wpdb;
+$table_name = $wpdb->prefix . 'main_table';
+$query = "UPDATE `$table_name` SET `option_value`='$ct_code' WHERE `option` = 'ct_code'";
+
+if (strlen($ct_code) > 0) {
+  $query = "UPDATE `$table_name` SET `option_value`='$ct_code' WHERE `option` = 'ct_code'";
+ run_query($query );
+}
+else{
+  $query = "UPDATE `$table_name` SET `option_value`='not_provided' WHERE `option` = 'ct_code'";
+ run_query($query );
+}
+
+}
+
+
 
 
 
@@ -361,6 +383,15 @@ if($all_data[2]->option_value != 'not_provided'){
 
 <?php
 }
+if($all_data[5]->option_value != 'not_provided'){
+?>
+<!-- Global site tag (gtag.js)  - One Stop SEO-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $all_data[5]->option_value ?>"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo $all_data[5]->option_value ?>'); </script> 
+<!-- End Global site tag -->
+<?php
+}
+
 ?>
 
 <style>
@@ -421,6 +452,16 @@ function read_more_shortcode($atts = [], $content = null)
 
 /* -==========- ShortCode End-==========- */
 
+
+/* -==========- Read File -==========- */
+function readwrite_file($data){
+
+
+
+}
+
+
+/* -==========- Read File End-==========- */
 
 
 

@@ -5,6 +5,7 @@
   <button class="tablinks" onclick="openCity(event, 'tracking')">Tracking</button>
   <button class="tablinks" onclick="openCity(event, 'shortcode')">Shortcode</button>
   <button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button>
+  <button class="tablinks" onclick="openCity(event, 'editfiles')">Edit Files</button>
   <button class="tablinks" onclick="openCity(event, 'support')">Support</button>
 </div>
 
@@ -22,6 +23,9 @@
 </div>
 <div style="background: white;" id="customcode" class="tabcontent">
   <?php include('gui/custom_code.php'); ?>
+</div>
+<div style="background: white;" id="editfiles" class="tabcontent">
+  <?php include('gui/edit_file.php'); ?>
 </div>
 <div style="background: white;" id="support" class="tabcontent">
   <?php include('gui/support.php'); ?>
