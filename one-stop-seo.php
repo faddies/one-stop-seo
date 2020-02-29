@@ -454,10 +454,7 @@ function read_more_shortcode($atts = [], $content = null)
 
 
 /* -==========- Read File -==========- */
-function readwrite_file($data){
-
-
-
+function readwrite_file(){
 }
 
 
