@@ -461,6 +461,37 @@ function readwrite_file(){
 /* -==========- Read File End-==========- */
 
 
+/* -==========- Verify URL -==========- */
+function check_url_status($data){
+  $url = parse_url($data);
+  $host_url = $url['host'];
+  $host_url = trim(str_replace("www.","",$host_url));
+
+  $http_non_www = "http://" . $host_url; 
+  $http_www = "http://www." . $host_url;
+  $https_non_www = "https://" . $host_url; 
+  $https_www = "https://www." . $host_url;
+  $url_versions = array($http_non_www,$http_www,$https_non_www,$https_www);
+  $results = array();
+    for ($i=0; $i <= 3 ; $i++) { 
+      $headers = @get_headers($url_versions[$i]); 
+      if($headers && strpos( $headers[0], '200')) { 
+          $status = $url_versions[$i] . "Working"; 
+      } 
+      else { 
+          $status = $url_versions[$i] . $headers[0]; 
+      } 
+       $results[$i] = $status;
+
+    }
+
+//var_dump($results);die();
+    return $results;
+
+}
+
+/* -==========- Verify URL End-==========- */
+
 
 
 /* Add Some Text After Content 
