@@ -474,12 +474,13 @@ function check_url_status($data){
   $url_versions = array($http_non_www,$http_www,$https_non_www,$https_www);
   $results = array();
     for ($i=0; $i <= 3 ; $i++) { 
-      $headers = @get_headers($url_versions[$i]); 
+      $headers = @get_headers($url_versions[$i]);
+
       if($headers && strpos( $headers[0], '200')) { 
-          $status = $url_versions[$i] . "Working"; 
+          $status = $url_versions[$i] . " Working"; 
       } 
       else { 
-          $status = $url_versions[$i] . $headers[0]; 
+          $status = $url_versions[$i] . ' ' . $headers[0] . ' To ' . $headers[6]; 
       } 
        $results[$i] = $status;
 

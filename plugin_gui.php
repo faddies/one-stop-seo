@@ -3,11 +3,12 @@
 <div class="tab">
   <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'welcome')">Welcome</button>
   <button class="tablinks" onclick="openCity(event, 'tracking')">Tracking</button>
-  <button class="tablinks" onclick="openCity(event, 'shortcode')">Shortcode</button>
+  <button class="tablinks" onclick="openCity(event, 'shortcode')">Short Codes</button>
   <button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button>
   <button class="tablinks" onclick="openCity(event, 'editfiles')">Edit Files</button>
+  <button class="tablinks" onclick="openCity(event, 'sitestatus')">Site Health</button>
+  <button class="tablinks" onclick="openCity(event, 'tools')">Tools</button>
   <button class="tablinks" onclick="openCity(event, 'support')">Support</button>
-  <button class="tablinks" onclick="openCity(event, 'testing')">Testing</button>
 </div>
 
 <div style="background: white; text-align: center;" id="welcome" class="tabcontent">
@@ -28,11 +29,14 @@
 <div style="background: white;" id="editfiles" class="tabcontent">
   <?php include('gui/edit_file.php'); ?>
 </div>
-<div style="background: white;" id="testing" class="tabcontent">
-  <script type="text/javascript" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/js/script.js'; ?>"></script>
-  <?php include('gui/testing.php'); ?>
+<div style="background: white;" id="sitestatus" class="tabcontent">
+  <?php include('gui/sitestatus.php'); ?>
+</div>
+<div style="background: white;" id="tools" class="tabcontent">
+  <?php include('gui/tools.php'); ?>
 </div>
 <div style="background: white;" id="support" class="tabcontent">
 
   <?php include('gui/support.php'); ?>
 </div>
+<script type="text/javascript" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/js/script.js'; ?>"></script>

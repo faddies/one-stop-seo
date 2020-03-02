@@ -1,6 +1,6 @@
-<h3>Canonicalization Status</h3>
-<p>To change the style of button or content, following are the classes details:</p>
-  <form action="http://localhost/plugintest/wp-admin/options-general.php?page=one-stop-seo" method="post">
+<h3>Canonicalization Check</h3>
+<p>Check Canonicalization for any website.</p>
+  <form action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>" method="post">
     <input style="float: left;" type="text" name="text" value="Enter Value" />
     <?php  submit_button('Check Canonicalization'); ?>
 	</form>
