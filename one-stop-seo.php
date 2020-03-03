@@ -95,23 +95,20 @@ one_stop_seo_create_table();
 /* -==========- Required Table Creation End -==========- */
 
 
-
-
-
-
 /* -==========- Plugin Registration  -==========- */
 
 // Plugin Page Settings 
 
 // Plugin Page Option 
 function plugin_options() {
-    add_options_page(
+    add_menu_page(
                       'One Stop SEO Options',
                       'One Stop SEO', 
                       'manage_options', 
                       'one-stop-seo', 
                       'setting_page',
-                      'dashicons-admin-plugins'
+                      'dashicons-share-alt',
+                      '1'
                     );
     
     /*
@@ -131,6 +128,58 @@ function plugin_options() {
     */
 }
 
+
+// function sd_register_top_level_menu(){
+//   add_menu_page(
+//     'My Menu Title',
+//     'My Menu',
+//     'manage_options',
+//     'mymenupage',
+//     'sd_display_top_level_menu_page',
+//     '',
+//     6
+//   );
+// }
+// add_action( 'admin_menu', 'sd_register_top_level_menu' );
+
+// function sd_display_top_level_menu_page(){
+//   echo 'This is my page content';
+// }
+add_action( 'admin_menu', 'sub_menu' );
+ 
+function sub_menu() {
+  add_submenu_page(
+    'one-stop-seo',
+    'Tools',
+    'Tools',
+    'manage_options',
+    'one-stop-seo-tools',
+    'tools_page'
+  );
+}
+
+
+add_action('admin_bar_menu', 'add_toolbar_items', 100);
+function add_toolbar_items($admin_bar){
+    $admin_bar->add_menu( array(
+        'id'    => 'top-menu',
+        'title' => 'One Stop SEO',
+        'href'  => '#',
+        'meta'  => array(
+            'title' => __('One Stop SEO'),            
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'tools',
+        'parent' => 'top-menu',
+        'title' => 'Tools',
+        'href'  => SITE_URL .'/wp-admin/admin.php?page=one-stop-seo-tools',
+        'meta'  => array(
+            'title' => __('Tools'),
+            'class' => 'my_menu_item_class'
+        ),
+    ));
+}
 
 
 function one_stop_seo_register_settings() {
@@ -159,6 +208,12 @@ include('plugin_gui.php');
 
 }
 
+function tools_page()
+{
+
+include('gui/tools.php');
+
+}
 /* -==========- Plugin GUI Call End -==========- */
 
 
@@ -462,7 +517,7 @@ function readwrite_file(){
 
 
 /* -==========- Verify URL -==========- */
-function check_url_status($data){
+function check_url_canonicalization($data){
   $url = parse_url($data);
   $host_url = $url['host'];
   $host_url = trim(str_replace("www.","",$host_url));
@@ -475,12 +530,14 @@ function check_url_status($data){
   $results = array();
     for ($i=0; $i <= 3 ; $i++) { 
       $headers = @get_headers($url_versions[$i]);
-
       if($headers && strpos( $headers[0], '200')) { 
           $status = $url_versions[$i] . " Working"; 
       } 
-      else { 
+      elseif($headers && strpos( $headers[0], '301')) { 
           $status = $url_versions[$i] . ' ' . $headers[0] . ' To ' . $headers[6]; 
+      } 
+      else { 
+          $status = $url_versions[$i] . ' ' . $headers[0] . ' ' . $headers[6]; 
       } 
        $results[$i] = $status;
 
@@ -489,6 +546,28 @@ function check_url_status($data){
 //var_dump($results);die();
     return $results;
 
+}
+
+function check_sitemap_status($data){
+      $headers1 = @get_headers($data . '/sitemap.xml');
+      $headers2 = @get_headers($data . '/sitemap_index.xml');
+      if($headers1 && strpos( $headers1[0], '200')) { 
+          return 'Exist at '.$data.'/sitemap.xml';
+      } elseif ($headers2 && strpos( $headers2[0], '200')) {
+        return 'Exist at '.$data.'/sitemap_index.xml';
+      }
+      else { 
+          return false;
+      } 
+}
+function check_robots_status($data){
+      $headers = @get_headers($data . '/robots.txt');
+      if($headers && strpos( $headers[0], '200')) { 
+          return 'Exist at '.$data.'/robots.txt';
+      } 
+      else { 
+          return false;
+      } 
 }
 
 /* -==========- Verify URL End-==========- */

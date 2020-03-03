@@ -7,7 +7,6 @@
   <button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button>
   <button class="tablinks" onclick="openCity(event, 'editfiles')">Edit Files</button>
   <button class="tablinks" onclick="openCity(event, 'sitestatus')">Site Health</button>
-  <button class="tablinks" onclick="openCity(event, 'tools')">Tools</button>
   <button class="tablinks" onclick="openCity(event, 'support')">Support</button>
 </div>
 
@@ -31,9 +30,6 @@
 </div>
 <div style="background: white;" id="sitestatus" class="tabcontent">
   <?php include('gui/sitestatus.php'); ?>
-</div>
-<div style="background: white;" id="tools" class="tabcontent">
-  <?php include('gui/tools.php'); ?>
 </div>
 <div style="background: white;" id="support" class="tabcontent">
 
