@@ -3,7 +3,7 @@
  * Plugin Name: One Stop SEO
  * Plugin URI: 
  * Description: The is going to be the one and only one stop seo plugin Soon.
- * Version: 1.1.6
+ * Version: 1.2.1
  * Author: Fahad Bin Zafar
  * Author URI: https://www.linkedin.com/in/fahadbinzafar/
  */
