@@ -19,16 +19,7 @@ return $value;
 }
 
 
-// Return Value if not "Not Provided"
-function check_value($a,$b,$c,$d){
-  $result = fetch_data($a,$b,$c,$d);
-  if($result=="not_provided"){
-    return NULL;
-  }
-  else{
-    return $result;
-  }
-}
+
 
 
 //Read More Short Code

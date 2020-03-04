@@ -78,7 +78,9 @@
 
     <?php 
 
-    $dns_record = dns_get_record('mummyista.ae',DNS_ALL - DNS_PTR);
+     $url = parse_url(SITE_URL);
+  $host_url = $url['host'];
+    $dns_record = dns_get_record($host_url,DNS_ALL - DNS_PTR);
     echo '<pre>';
     echo var_dump($dns_record);
     echo '</pre>';

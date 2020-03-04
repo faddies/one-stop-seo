@@ -16,7 +16,7 @@ define('SITE_URL', get_site_url());
 global $wpdb;
 global $all_data;
 
-
+include('admin/code/plugin_functions.php');
 include('admin/code/hooks.php');
 
 /* -==========- Version Check -==========- */
@@ -50,10 +50,19 @@ include('admin/gui/tools.php');
 
 }
 /* -==========- Plugin GUI Call End -==========- */
-
+// Return Value if not "Not Provided"
+function check_value($a,$b,$c,$d){
+  $result = fetch_data($a,$b,$c,$d);
+  if($result=="not_provided"){
+    return NULL;
+  }
+  else{
+    return $result;
+  }
+}
 
 /* -==========- Plugin Helping Functions  -==========- */
-include('admin/code/plugin_functions.php');
+
 
 /* -==========- Plugin Helping Functions End -==========- */
 

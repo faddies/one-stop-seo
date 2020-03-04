@@ -1,5 +1,5 @@
 <?php
-
+global $all_data;
 /* -==========- Hooks -==========- */
 
 // Create Data Base on Plugin activation
@@ -130,7 +130,7 @@ function one_stop_seo_create_table(){
                     PRIMARY KEY(`id`),UNIQUE `data_option` (`data_option`)
                     )" . $charset_collate . ";";
   // Add Required Rows
-  $add_data = "INSERT INTO `wp_main_table`( `data_option`) 
+  $add_data = "INSERT INTO `$table_name`( `data_option`) 
                 VALUES 
               ('ga_code'), 
               ('gtm_code'),
