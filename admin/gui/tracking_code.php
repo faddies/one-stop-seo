@@ -4,7 +4,7 @@
   <form class="tracking_page" method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
     <?php settings_fields( 'one_stop_seo_options_group' ); ?>
     <!-- <h3>Google Tag Manager Code</h3> -->
-    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/images/gtm.png'; ?>">
+    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/images/gtm.png'; ?>">
     <table>
       <tr valign="top">
         <th scope="row">
@@ -16,7 +16,7 @@
           id="gtmcode" 
           name="gtmcode" 
           pattern="|[Gg][Tt][Mm]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
-          value="<?php echo $abc = check_value('option','gtm_code','option_value','main_table'); ?>" />
+          value="<?php echo $abc = check_value('data_option','gtm_code','option_value','main_table'); ?>" />
 
         </td>
         <td>Enter Code only: 
@@ -29,7 +29,7 @@
   <form class="tracking_page" method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
     <?php settings_fields( 'one_stop_seo_options_group' ); ?>
     <!-- <h3>Google Analytics Code</h3> -->
-    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/images/analytics.png'; ?>">
+    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/images/analytics.png'; ?>">
     <table>
       <tr valign="top">
         <th scope="row">
@@ -41,7 +41,7 @@
           id="gacode" 
           name="gacode"
           pattern="[Uu][Aa]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9]"
-          value="<?php echo $abc = check_value('option','ga_code','option_value','main_table'); ?>" />
+          value="<?php echo $abc = check_value('data_option','ga_code','option_value','main_table'); ?>" />
         </td>
         <td>Enter Code only: 
           <span style="color:white; font-weight: bold;">UA-xxxxxxxxx-x</span>
@@ -53,7 +53,7 @@
   <form class="tracking_page" method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
     <?php settings_fields( 'one_stop_seo_options_group' ); ?>
     <!-- <h3>Google Search Console Code</h3> -->
-    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/images/gsc.png'; ?>">
+    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/images/gsc.png'; ?>">
     <table>
       <tr valign="top">
         <th scope="row">
@@ -68,7 +68,7 @@
           name="sccode"
           pattern="[A-Za-z-_0-9]{43}"
           maxlength="43" 
-          value="<?php echo $abc = check_value('option','sc_code','option_value','main_table');  ?>" />
+          value="<?php echo $abc = check_value('data_option','sc_code','option_value','main_table');  ?>" />
         </td>
         <td>Code Only: XXXXXXX_XXXXX_XXXXXX 
         </td>
@@ -79,7 +79,7 @@
   <form class="tracking_page" method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
     <?php settings_fields( 'one_stop_seo_options_group' ); ?>
     <!-- <h3>Google Search Console Code</h3> -->
-    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/images/google-ads.png'; ?>">
+    <img style="width: 8%;" src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/images/google-ads.png'; ?>">
     <table>
       <tr valign="top">
         <th scope="row">
@@ -91,7 +91,7 @@
           id="ctcode" 
           name="ctcode"
           pattern="[Aa][Ww]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
-          value="<?php echo $abc = check_value('option','ct_code','option_value','main_table');  ?>" />
+          value="<?php echo $abc = check_value('data_option','ct_code','option_value','main_table');  ?>" />
         </td>
         <td>Code Only. AW-XXXXXXXXX
         </td>

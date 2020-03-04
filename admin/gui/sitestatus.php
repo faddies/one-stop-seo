@@ -11,7 +11,8 @@
     
 	    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['text'] ))
 	    {
-	      $site_url = $_POST['text'];
+	      // $site_url = $_POST['text'];
+          $site_url = $_POST['text'];
 	      $status_result = check_url_canonicalization($site_url);
 	      echo '<li>' . $status_result[0] . '</li>';
 	      echo '<li>' . $status_result[1] . '</li>';
@@ -74,3 +75,11 @@
     	
     	
     </p>
+
+    <?php 
+
+    $dns_record = dns_get_record('mummyista.ae',DNS_ALL - DNS_PTR);
+    echo '<pre>';
+    echo var_dump($dns_record);
+    echo '</pre>';
+    ?>

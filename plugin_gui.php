@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" href="<?php echo PLUGIN_URL.'/one-stop-seo/assets/css/style.css'; ?>" />
+
+<link rel="stylesheet" type="text/css" href="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/css/style.css'; ?>" />
 
 <div class="tab">
   <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'welcome')">Welcome</button>
@@ -11,28 +12,29 @@
 </div>
 
 <div style="background: white; text-align: center;" id="welcome" class="tabcontent">
-  <?php include('gui/welcome.php'); ?>
-  <img src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/images/seo2.gif'; ?>">
+  <?php include('admin/gui/welcome.php'); ?>
+  <img src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/images/seo2.gif'; ?>">
 </div>
 
 <div style="background: white;" id="tracking" class="tabcontent">
-  <?php include('gui/tracking_code.php'); ?>
+  <?php include('admin/gui/tracking_code.php'); ?>
 </div>
 
 <div style="background: white;" id="shortcode" class="tabcontent">
-  <?php include('gui/shortcode.php'); ?>
+  <?php include('admin/gui/shortcode.php'); ?>
 </div>
 <div style="background: white;" id="customcode" class="tabcontent">
-  <?php include('gui/custom_code.php'); ?>
+  <?php include('admin/gui/custom_code.php'); ?>
 </div>
 <div style="background: white;" id="editfiles" class="tabcontent">
-  <?php include('gui/edit_file.php'); ?>
+  <?php include('admin/gui/edit_file.php'); ?>
 </div>
 <div style="background: white;" id="sitestatus" class="tabcontent">
-  <?php include('gui/sitestatus.php'); ?>
+  <?php include('admin/gui/sitestatus.php'); ?>
 </div>
 <div style="background: white;" id="support" class="tabcontent">
 
-  <?php include('gui/support.php'); ?>
+  <?php include('admin/gui/support.php'); ?>
 </div>
-<script type="text/javascript" src="<?php echo PLUGIN_URL.'/one-stop-seo/assets/js/script.js'; ?>"></script>
+
+<script type="text/javascript" src="<?php echo PLUGIN_URL.'/one-stop-seo/admin/assets/js/script.js'; ?>"></script> 

@@ -11,7 +11,7 @@
           id="customforhead" 
           name="customforhead"
           cols="70"
-          rows="8" ><?php echo $abc = html_entity_decode(check_value('option','custom_head','option_value','main_table')); ?></textarea>
+          rows="8" ><?php echo $abc = html_entity_decode(check_value('data_option','custom_head','option_value','main_table')); ?></textarea>
         </td>
       </tr>
     </table>
@@ -30,7 +30,7 @@
           id="customforbody" 
           name="customforbody"
           cols="70"
-          rows="8" ><?php echo $abc = check_value('option','custom_body','option_value','main_table'); ?></textarea>
+          rows="8" ><?php echo $abc = check_value('data_option','custom_body','option_value','main_table'); ?></textarea>
         </td>
       </tr>
     </table>
