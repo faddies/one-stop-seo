@@ -52,8 +52,11 @@ function check_url_canonicalization($data){
       elseif($headers && strpos( $headers[0], '301')) { 
           $status = $url_versions[$i] . ' ' . $headers[0] . ' To ' . $headers[6]; 
       } 
+      elseif($headers) { 
+          $status = $url_versions[$i] . ' ' . $headers[0] . ' To ' . $headers[6]; 
+      } 
       else { 
-          $status = $url_versions[$i] . ' ' . $headers[0] . ' ' . $headers[6]; 
+          $status = $url_versions[$i] . ' Server Error.'; 
       } 
        $results[$i] = $status;
     }
