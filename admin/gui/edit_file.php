@@ -35,7 +35,7 @@
           id="sitemap" 
           name="edit-sitemap"
           cols="70"
-          rows="8" ><?php echo read_files_from_path(ABSPATH."/sitemap.xml"); ?>
+          rows="8" ><?php echo read_files_from_path(ABSPATH."sitemap.xml"); ?>
 </textarea>
 
 

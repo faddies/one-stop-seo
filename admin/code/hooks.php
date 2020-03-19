@@ -4,6 +4,7 @@ global $all_data;
 
 // Create Data Base on Plugin activation
 register_activation_hook( __FILE__, 'one_stop_seo_create_table' );
+register_activation_hook(__FILE__, 'yoast_deactivation');
 
 // Add Plugin Link in Setting Menu
 add_action('admin_menu', 'plugin_options');
@@ -158,4 +159,9 @@ function one_stop_seo_register_settings() {
                       'enter_ga_code', 'enter_ga_value',
                       'myplugin_callback' 
                     );
+}
+
+
+function yoast_deactivation() {
+    deactivate_plugins('wordpress-seo/wp-seo.php');
 }
