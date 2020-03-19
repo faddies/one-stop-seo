@@ -85,3 +85,72 @@ function check_robots_status($data){
           return false;
       } 
 }
+
+function read_files_from_path($data){
+  $path =$data;  
+  if (file_exists($data)) {
+    $fp = fopen( $path, 'r' );
+    return stream_get_contents($fp, -1);
+  }
+  else
+    {
+      return false;
+    }
+  
+}
+
+function read_files_from_url($data){
+   $file = $data; 
+   $headers = @get_headers($file);
+   if ($headers && strpos( $headers[0], '200')) {
+    $fp = fopen( $file, 'r' );
+    return stream_get_contents($fp, -1);
+    }
+    else
+    {
+      return false;
+    }
+}
+
+
+  if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['edit-robots'] ))
+      {
+        
+        $filename = ABSPATH."robots.txt";
+        if(file_exists($filename))
+        {
+          $handle = fopen( $filename, 'wa+' );
+          $current = $_POST['edit-robots'];
+          fwrite( $handle, $current);
+          fclose( $handle );
+        }
+        
+      }
+   if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['edit-sitemap'] ))
+      {
+        
+        $filename = ABSPATH."sitemap.xml";
+        if(file_exists($filename))
+        {
+          $handle = fopen( $filename, 'wa+' );
+          $current = $_POST['edit-sitemap'];
+          fwrite( $handle, $current);
+          fclose( $handle );
+        }
+        
+      }      
+
+  if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['edit-htaccess'] ))
+      {
+        
+        $filename = ABSPATH.".htaccess";
+        if(file_exists($filename))
+        {
+          $handle = fopen( $filename, 'wa+' );
+          $current = $_POST['edit-htaccess'];
+          fwrite( $handle, $current);
+          fclose( $handle );
+        }
+        
+      }     
+

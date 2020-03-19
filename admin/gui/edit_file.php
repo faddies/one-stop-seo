@@ -9,17 +9,63 @@
         <td>
           <textarea 
           id="robots" 
-          name="robots"
+          name="edit-robots"
           cols="70"
-          rows="8" ><?php echo $abc = html_entity_decode(check_value('data_option','custom_head','option_value','main_table')); ?></textarea>
+          rows="8" ><?php echo read_files_from_path(ABSPATH."robots.txt"); ?>
+</textarea>
+
+
+
         </td>
       </tr>
     </table>
     <?php  submit_button(); ?>
   </form>
 
- 
+ <form method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
+    <?php settings_fields( 'one_stop_seo_options_group' ); ?>
+    <h3>SiteMap</h3>
+    <table>
+      <tr valign="top">
+        <th scope="row">
+          <label for="one_stop_seo_option_name">sitemap.xml</label>
+        </th>
+        <td>
+          <textarea 
+          id="sitemap" 
+          name="edit-sitemap"
+          cols="70"
+          rows="8" ><?php echo read_files_from_path(ABSPATH."/sitemap.xml"); ?>
+</textarea>
 
+
+
+        </td>
+      </tr>
+    </table>
+    <?php  submit_button(); ?>
+  </form>
+ <form method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
+    <?php settings_fields( 'one_stop_seo_options_group' ); ?>
+    <h3>Htaccess</h3>
+    <table>
+      <tr valign="top">
+        <th scope="row">
+          <label for="one_stop_seo_option_name">HTACCESS</label>
+        </th>
+        <td>
+          <textarea 
+          id="htaccess" 
+          name="edit-htaccess"
+          cols="70"
+          rows="8" ><?php 
+          echo read_files_from_path(ABSPATH.'.htaccess'); 
+          ?></textarea>
+        </td>
+      </tr>
+    </table>
+    <?php  submit_button(); ?>
+  </form>
   <!-- <form method="post" action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>">
     <?php settings_fields( 'one_stop_seo_options_group' ); ?>
     <h3>Add Custom Code in &lt;body&gt; #code# &lt;/body&gt;</h3>

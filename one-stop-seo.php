@@ -12,6 +12,7 @@
 define("PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
 define('PLUGIN_URL', plugins_url());
 define('SITE_URL', get_site_url());
+define('ROOTWPPATH', dirname(__FILE__) . '/');
 
 global $wpdb;
 global $all_data;
