@@ -165,3 +165,84 @@ function one_stop_seo_register_settings() {
 function yoast_deactivation() {
     deactivate_plugins('wordpress-seo/wp-seo.php');
 }
+function register_developer_entities() {
+    $developer_args = array(
+      'public' => true,
+      'label'  => 'Developers',
+      'rewrite' => array( 'slug' => 'developers' ),
+      'taxonomies' => array( 'developer_tag' )
+    );
+    register_post_type( 'developer', $developer_args );
+
+    $taxonomy_args = array(
+      'labels' => array( 'name' => 'Developer Tags' ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'rewrite' => array( 'slug' => 'developers' )
+    );
+    register_taxonomy( 'developer_tag', array( 'developer' ), $taxonomy_args );
+}
+
+add_action( 'init', 'register_developer_entities' );
+function generate_taxonomy_rewrite_rules( $wp_rewrite ) {
+  $rules = array();
+  $post_types = get_post_types( array( 'name' => 'developer', 'public' => true, '_builtin' => false ), 'objects' );
+  $taxonomies = get_taxonomies( array( 'name' => 'developer_tag', 'public' => true, '_builtin' => false ), 'objects' );
+
+  foreach ( $post_types as $post_type ) {
+    $post_type_name = $post_type->name; // 'developer'
+    $post_type_slug = $post_type->rewrite['slug']; // 'developers'
+
+    foreach ( $taxonomies as $taxonomy ) {
+      if ( $taxonomy->object_type[0] == $post_type_name ) {
+        $terms = get_categories( array( 'type' => $post_type_name, 'taxonomy' => $taxonomy->name, 'hide_empty' => 0 ) );
+        foreach ( $terms as $term ) {
+          $rules[$post_type_slug . '/' . $term->slug . '/?$'] = 'index.php?' . $term->taxonomy . '=' . $term->slug;
+        }
+      }
+    }
+  }
+  $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+}
+add_action('generate_rewrite_rules', 'generate_taxonomy_rewrite_rules');
+
+function register_designer_entities() {
+    $designer_args = array(
+      'public' => true,
+      'label'  => 'designers',
+      'rewrite' => array( 'slug' => 'designers' ),
+      'taxonomies' => array( 'designer_tag' )
+    );
+    register_post_type( 'designer', $designer_args );
+
+    $taxonomy_args = array(
+      'labels' => array( 'name' => 'designer Tags' ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'rewrite' => array( 'slug' => 'designers' )
+    );
+    register_taxonomy( 'designer_tag', array( 'designer' ), $taxonomy_args );
+}
+
+add_action( 'init', 'register_designer_entities' );
+function generate_taxonomy_rewrite_rules_designer( $wp_rewrite ) {
+  $rules = array();
+  $post_types = get_post_types( array( 'name' => 'designer', 'public' => true, '_builtin' => false ), 'objects' );
+  $taxonomies = get_taxonomies( array( 'name' => 'designer_tag', 'public' => true, '_builtin' => false ), 'objects' );
+
+  foreach ( $post_types as $post_type ) {
+    $post_type_name = $post_type->name; // 'designer'
+    $post_type_slug = $post_type->rewrite['slug']; // 'designers'
+
+    foreach ( $taxonomies as $taxonomy ) {
+      if ( $taxonomy->object_type[0] == $post_type_name ) {
+        $terms = get_categories( array( 'type' => $post_type_name, 'taxonomy' => $taxonomy->name, 'hide_empty' => 0 ) );
+        foreach ( $terms as $term ) {
+          $rules[$post_type_slug . '/' . $term->slug . '/?$'] = 'index.php?' . $term->taxonomy . '=' . $term->slug;
+        }
+      }
+    }
+  }
+  $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+}
+add_action('generate_rewrite_rules', 'generate_taxonomy_rewrite_rules_designer');
