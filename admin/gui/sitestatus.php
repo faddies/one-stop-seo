@@ -35,6 +35,7 @@
 
 <p>Sitemap not Found. Why Not we generate one for you?</p>
 <form action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>" method="post">
+    <input type="text" name="generate-sitemap" hidden="">
     <?php  submit_button('Generate Sitemap'); ?>
 	</form>
 
@@ -61,7 +62,8 @@
 
 <p>Robots.txt not Found. Why Not we generate one for you?</p>
 <form action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>" method="post">
-    <?php  submit_button('Generate Sitemap'); ?>
+    <input type="text" name="generate-robot" hidden="">
+    <?php  submit_button('Generate Default Robots.txt'); ?>
 	</form>
 
 
