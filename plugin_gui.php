@@ -4,10 +4,10 @@
 <div class="tab">
   <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'welcome')">Welcome</button>
   <button class="tablinks" onclick="openCity(event, 'tracking')">Tracking</button>
-  <button class="tablinks" onclick="openCity(event, 'shortcode')">Short Codes</button>
-  <button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button>
   <button class="tablinks" onclick="openCity(event, 'editfiles')">Edit Files</button>
   <button class="tablinks" onclick="openCity(event, 'sitestatus')">Site Health</button>
+  <button class="tablinks" onclick="openCity(event, 'shortcode')">Short Codes</button>
+  <!-- button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button-->
   <button class="tablinks" onclick="openCity(event, 'support')">Support</button>
 </div>
 

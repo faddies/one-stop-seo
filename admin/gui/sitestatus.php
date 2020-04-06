@@ -122,3 +122,18 @@
       }
 
 ?>
+
+
+
+<h3>Google Page Speed Score</h3>
+<p>Check Page speed Score for Mobile and Desktop</p>
+  <form action="<?php echo SITE_URL .'/wp-admin/options-general.php?page=one-stop-seo&button=submit' ?>" method="post">
+    <input style="float: left;" type="text" hidden name="speed_score" />
+    <?php  submit_button('Check Score'); ?>
+  </form>
+ <?php 
+  if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['speed_score'] ))
+      {
+   echo get_page_speed_score('https://keepclean.ae/');
+ }
+ ?>

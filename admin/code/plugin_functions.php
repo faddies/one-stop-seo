@@ -202,3 +202,36 @@ function get_all_urls(){
 
   return $list_of_urls;
 }
+
+
+function get_page_speed_score($site) {
+    #initialize
+    $use_cache = false;
+    $apc_is_loaded = extension_loaded('apc');
+
+    #set $use_cache
+    if($apc_is_loaded) {
+        apc_fetch("thumbnail:".$site, $use_cache);
+    }
+
+    if(!$use_cache) {
+        $desktop_fetch = file_get_contents("https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=AIzaSyDKIz7bBbt7WWIkTvY1zPTz6L4bupjVDqc&locale=en_US&url=$site&strategy=desktop");
+        $desktop_fetch = json_decode($desktop_fetch, true);
+        var_dump($desktop_fetch);
+        $desktop_score = $desktop_fetch['ruleGroups']['SPEED']['score'];
+
+
+        $mobile_fetch = file_get_contents("https://www.googleapis.com/pagespeedonline/v4/runPagespeed?url=$site&screenshot=true&strategy=mobile&snapshots=false&key=AIzaSyDKIz7bBbt7WWIkTvY1zPTz6L4bupjVDqc");
+        $mobile_fetch = json_decode($mobile_fetch, true);
+        $mobile_score = $mobile_fetch['ruleGroups']['SPEED']['score'];
+
+
+        $desktop_image = $desktop_fetch['screenshot']['data'];
+        if($apc_is_loaded) {
+           apc_add("thumbnail:".$site, $desktop_image, 4800);
+        }
+    }
+
+    $desktop_image = str_replace(array('_', '-'), array('/', '+'), $desktop_image);
+    return "<div class='speedscore'><ul><li>Desktop: ".$desktop_score ."</li><li> Mobile: " . $mobile_score."</li></ul></div><br><img src=\"data:image/jpeg;base64,".$desktop_image."\" />";
+}
