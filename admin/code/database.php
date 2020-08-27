@@ -61,53 +61,6 @@ else{
 
 }
 
-
-
-if (isset($_POST['customforhead'])){
-
-$customforhead = addslashes(htmlentities($_POST['customforhead']));
-global $wpdb;
-$table_name = $wpdb->prefix . 'main_table';
-$query = "UPDATE `$table_name` SET `option_value`='$customforhead' WHERE `data_option` = 'custom_head'";
-
-if (strlen($customforhead) > 0) {
-  $query = "UPDATE `$table_name` SET `option_value`='$customforhead' WHERE `data_option` = 'custom_head'";
- run_query($query );
-}
-else{
-  $query = "UPDATE `$table_name` SET `option_value`='not_provided' WHERE `data_option` = 'custom_head'";
- run_query($query );
-}
-
-
-}
-
-
-
-
-
-
-
-if (isset($_POST['customforbody'])){
-
-$customforbody = htmlentities($_POST['customforbody']);
-//var_dump($gtm_code);die();
-global $wpdb;
-$table_name = $wpdb->prefix . 'main_table';
-$query = "UPDATE `$table_name` SET `option_value`='$customforbody' WHERE `data_option` = 'custom_body'";
-
-if (strlen($customforbody) > 0) {
-  $query = "UPDATE `$table_name` SET `option_value`='$customforbody' WHERE `data_option` = 'custom_body'";
- run_query($query );
-}
-else{
-  $query = "UPDATE `$table_name` SET `option_value`='not_provided' WHERE `data_option` = 'custom_body'";
- run_query($query );
-}
-
-
-}
-
 if (isset($_POST['ctcode'])){
 
 $ct_code = $_POST['ctcode'];

@@ -7,7 +7,6 @@
   <button class="tablinks" onclick="openCity(event, 'editfiles')">Edit Files</button>
   <button class="tablinks" onclick="openCity(event, 'sitestatus')">Site Health</button>
   <button class="tablinks" onclick="openCity(event, 'shortcode')">Short Codes</button>
-  <!-- button class="tablinks" onclick="openCity(event, 'customcode')">Custom Code</button-->
   <button class="tablinks" onclick="openCity(event, 'support')">Support</button>
 </div>
 
@@ -22,9 +21,6 @@
 
 <div style="background: white;" id="shortcode" class="tabcontent">
   <?php include('admin/gui/shortcode.php'); ?>
-</div>
-<div style="background: white;" id="customcode" class="tabcontent">
-  <?php include('admin/gui/custom_code.php'); ?>
 </div>
 <div style="background: white;" id="editfiles" class="tabcontent">
   <?php include('admin/gui/edit_file.php'); ?>

@@ -20,18 +20,6 @@ global $all_data;
 include('admin/code/plugin_functions.php');
 include('admin/code/hooks.php');
 
-/* -==========- Version Check -==========- */
-
-require 'plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-  'https://github.com/faddies/one-stop-seo',
-  __FILE__,
-  'one-stop-seo'
-);
-
-/* -==========- Version Check End -==========- */
-
-
 
 /* -==========- Plugin GUI Call  -==========- */
 
