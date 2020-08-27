@@ -2,7 +2,7 @@
 
 if (isset($_POST['gtmcode'])){
 
-$gtm_code = $_POST['gtmcode'];
+$gtm_code = sanitize_text_field($_POST['gtmcode']);
 //var_dump($gtm_code);die();
 global $wpdb;
 $table_name = $wpdb->prefix . 'main_table';
@@ -20,7 +20,7 @@ else{
 }
 if (isset($_POST['gacode'])){
 
-$ga_code = $_POST['gacode'];
+$ga_code = sanitize_text_field($_POST['gacode']);
 //var_dump($gtm_code);die();
 global $wpdb;
 $table_name = $wpdb->prefix . 'main_table';
@@ -44,7 +44,7 @@ else{
 
 if (isset($_POST['sccode'])){
 
-$sc_code = $_POST['sccode'];
+$sc_code = sanitize_text_field($_POST['sccode']);
 //var_dump($gtm_code);die();
 global $wpdb;
 $table_name = $wpdb->prefix . 'main_table';
@@ -63,7 +63,7 @@ else{
 
 if (isset($_POST['ctcode'])){
 
-$ct_code = $_POST['ctcode'];
+$ct_code = sanitize_text_field($_POST['ctcode']);
 //var_dump($gtm_code);die();
 global $wpdb;
 $table_name = $wpdb->prefix . 'main_table';
